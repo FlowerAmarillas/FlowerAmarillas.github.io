@@ -195,6 +195,11 @@ html, body {
   position: absolute;
   bottom: -40px;
 }
+#play-music {
+    bottom: 10px;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 
 @keyframes lean {
   0% {
