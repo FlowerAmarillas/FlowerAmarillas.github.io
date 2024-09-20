@@ -189,17 +189,32 @@ html, body {
   text-align: center;
   font-family: "Indie Flower";
 }
+.contenedor-grid {
+  display: grid; /* Utiliza CSS Grid */
+  place-items: center; /* Centra tanto horizontal como verticalmente */
+  height: 100vh; /* Altura de la pantalla completa o ajustable */
+}
+
+.mi-boton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+  top:800px;
+  left: 900px;
+  right: 0;
+}
+
 
 .whitespace {
   height: 40px;
   position: absolute;
   bottom: -40px;
 }
-#play-music {
-    bottom: 10px;
-    font-size: 14px;
-    padding: 8px 16px;
-  }
 
 @keyframes lean {
   0% {
