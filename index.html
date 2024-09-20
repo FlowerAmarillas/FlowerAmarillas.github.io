@@ -32,8 +32,30 @@ Inspired by:
 -->
 </div>
 <div class='whitespace'></div> 
-  <div class="contenedor-grid">
-  <button class="mi-boton">Reproducir musica</button>
+ <div class="contenedor-grid">
+  <button id="playButton" class="mi-boton">Reproducir música</button>
 </div>
+
+<!-- Elemento de audio oculto -->
+<audio id="audioPlayer" src="Flores Amarillas.mp3"></audio>
+
+<!-- JavaScript para controlar la reproducción del audio -->
+<script>
+    // Selecciona el botón y el reproductor de audio
+    const playButton = document.getElementById('playButton');
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    // Agrega un evento al botón para controlar la reproducción del audio
+    playButton.addEventListener('click', function () {
+        // Reproduce o pausa el audio según el estado actual
+        if (audioPlayer.paused) {
+            audioPlayer.play(); // Reproducir el audio
+            playButton.textContent = 'Pausar Audio'; // Cambiar texto del botón
+        } else {
+            audioPlayer.pause(); // Pausar el audio
+            playButton.textContent = 'Reproducir Audio'; // Cambiar texto del botón
+        }
+    });
+</script>
 </body>
 </html>
