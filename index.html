@@ -5,6 +5,45 @@
   <title>Flower Power</title>
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./style.css">
+  <style>
+  /* Estilos generales para los botones */
+  .mi-boton {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 10px; /* Añade margen entre los botones */
+      font-family: "monospace";
+      box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra añadida */
+       
+  }
+
+  /* Contenedor para centrar los botones */
+  .botones-contenedor {
+      display: flex;
+      
+      justify-content: center; /* Centra horizontalmente */
+      align-items: center; /* Centra verticalmente */
+      height: 100vh; /* Altura del contenedor para centrar verticalmente */
+      
+  }
+    /* Cambiar la posición de los botones */
+    #playButton2 {
+            order: 2; /* Cambiar el orden del botón */
+            position: relative; /* Puedes usar absolute para posicionar más libremente */
+            top: 330px; /* Mover hacia arriba */
+        }
+
+        #playButton1 {
+            order: 1;
+            position: relative;
+            top: 330px; /* Mover hacia abajo */
+            left: 10px; /* Mover hacia la derecha */
+        }
+</style>
 </head>
 <body>
 <div class='wrapper'>
@@ -24,36 +63,59 @@
   <div class='text'>  TE AMO RAQUELITA❤️
     <br>
   </div>
-  <!-- 
-Inspired by:
-    *Ig alexx_deev
-    * Instagram: https://www.instagram.com/alexx_deev?igsh=a3IyMnY0ZjdnZjJ0 
-    * https://www.instagram.com/alexx_deev?igsh=a3IyMnY0ZjdnZjJ0   
--->
 </div>
 <div class='whitespace'></div> 
- <div class="contenedor-grid">
-  <button id="playButton" class="mi-boton">Reproducir música</button>
+ <div class="botones-contenedor">
+  <button id="playButton1" class="mi-boton">Reproducir música🌻</button>
+  <button id="playButton2" class="mi-boton">Nuestra Música❤️</button>
 </div>
 
 <!-- Elemento de audio oculto -->
-<audio id="audioPlayer" src="Flores Amarillas.mp3"></audio>
+<audio id="audioPlayer1" src="Flores Amarillas.mp3"></audio>
 
-<!-- JavaScript para controlar la reproducción del audio -->
-<script>
-    // Selecciona el botón y el reproductor de audio
-    const playButton = document.getElementById('playButton');
-    const audioPlayer = document.getElementById('audioPlayer');
+<audio id="audioPlayer2" src="nuestra cancion.mp3"></audio>
+  <!-- JavaScript para controlar la reproducción de los audios -->
+  <script>
+    // Selecciona los botones y los reproductores de audio
+    const playButton1 = document.getElementById('playButton1');
+    const audioPlayer1 = document.getElementById('audioPlayer1');
+    
+    const playButton2 = document.getElementById('playButton2');
+    const audioPlayer2 = document.getElementById('audioPlayer2');
 
-    // Agrega un evento al botón para controlar la reproducción del audio
-    playButton.addEventListener('click', function () {
-        // Reproduce o pausa el audio según el estado actual
-        if (audioPlayer.paused) {
-            audioPlayer.play(); // Reproducir el audio
-            playButton.textContent = 'Pausar Audio'; // Cambiar texto del botón
+    // Función para controlar el primer botón y audio
+    playButton1.addEventListener('click', function () {
+        // Pausa el segundo audio si está reproduciéndose
+        if (!audioPlayer2.paused) {
+            audioPlayer2.pause();
+            playButton2.textContent = 'Reproducir❤️';
+        }
+
+        // Reproduce o pausa el primer audio
+        if (audioPlayer1.paused) {
+            audioPlayer1.play();
+            playButton1.textContent = 'Pausar ';
         } else {
-            audioPlayer.pause(); // Pausar el audio
-            playButton.textContent = 'Reproducir Audio'; // Cambiar texto del botón
+            audioPlayer1.pause();
+            playButton1.textContent = 'Reproducir';
+        }
+    });
+
+    // Función para controlar el segundo botón y audio
+    playButton2.addEventListener('click', function () {
+        // Pausa el primer audio si está reproduciéndose
+        if (!audioPlayer1.paused) {
+            audioPlayer1.pause();
+            playButton1.textContent = 'Reproducir';
+        }
+
+        // Reproduce o pausa el segundo audio
+        if (audioPlayer2.paused) {
+            audioPlayer2.play();
+            playButton2.textContent = 'Pausar😍';
+        } else {
+            audioPlayer2.pause();
+            playButton2.textContent = 'Reproducir🥺'; 
         }
     });
 </script>
